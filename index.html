@@ -3,16 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>خدمات السيرة الذاتية الاحترافية</title>
+    <title>خدمات السيرة الذاتية</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: #f5f5f5;
         }
         .hero {
-            background-image: url('https://source.unsplash.com/featured/?business,tech');
+            background-image: url('https://source.unsplash.com/featured/?background,professional');
             background-size: cover;
             background-position: center;
             height: 100vh;
@@ -21,87 +24,61 @@
             align-items: center;
             color: #fff;
         }
-        .hero h1 {
-            font-size: 48px;
-            font-weight: bold;
-            text-align: center;
-        }
-        .services {
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
             padding: 20px;
         }
-        .services h2 {
-            font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .service {
-            background-color: #f7f7f7;
+        .features-grid .feature {
+            background-color: #fff;
             padding: 20px;
             border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-        .service h3 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .testimonials {
             padding: 20px;
+            background-color: #f5f5f5;
         }
-        .testimonials h2 {
-            font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .testimonial {
-            background-color: #f7f7f7;
+        .contact-form {
             padding: 20px;
+            background-color: #fff;
             border: 1px solid #ddd;
-            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        .testimonial p {
-            font-size: 18px;
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .contact {
-            padding: 20px;
-        }
-        .contact h2 {
-            font-size: 36px;
-            font-weight: bold;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .contact form {
-            max-width: 500px;
-            margin: 0 auto;
-        }
-        .contact input, .contact textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 1px solid #ccc;
-        }
-        .contact button {
-            background-color: #4CAF50;
+        .footer {
+            background-color: #333;
             color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+            padding: 20px;
+            text-align: center;
         }
-        .contact button:hover {
-            background-color: #3e8e41;
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .hero {
+            background-image: url('https://source.unsplash.com/featured/?background,professional,dark');
+        }
+        .dark-mode .features-grid .feature {
+            background-color: #444;
+            color: #fff;
+        }
+        .dark-mode .testimonials {
+            background-color: #333;
+            color: #fff;
+        }
+        .dark-mode .contact-form {
+            background-color: #444;
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">خدمات السيرة الذاتية الاحترافية</a>
+        <div class="container">
+            <a class="navbar-brand" href="#">خدمات السيرة الذاتية</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -111,62 +88,71 @@
                         <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#services">الخدمات</a>
+                        <a class="nav-link" href="#">الخدمات</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#testimonials">الشهادات</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">اتصل بنا</a>
+                        <a class="nav-link" href="#">التواصل</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="hero">
-        <h1>خدمات السيرة الذاتية الاحترافية</h1>
+    <div class="hero" data-aos="fade-up">
+        <h1>خدمات السيرة الذاتية</h1>
+        <p>كتابة السيرة الذاتية وتحسين صفحة LinkedIn</p>
+        <button class="btn btn-primary">اطلب الآن</button>
     </div>
-    <div class="services" id="services">
-        <h2>الخدمات</h2>
-        <div class="service">
-            <h3>كتابة السيرة الذاتية</h3>
-            <p>نقدم لك كتابة سيرة ذاتية احترافية تعكس مهاراتك وخبراتك</p>
-            <p>السعر: 500 ريال</p>
+    <div class="features-grid" data-aos="fade-up">
+        <div class="feature">
+            <h2>كتابة السيرة الذاتية</h2>
+            <p>نقدم لك كتابة سيرة ذاتية محترفة ومتميزة</p>
         </div>
-        <div class="service">
-            <h3>تحسين صفحة LinkedIn</h3>
-            <p>نحسن صفحتك على LinkedIn لجذب المزيد من العملاء والمهنيين</p>
-            <p>السعر: 300 ريال</p>
-        </div>
-    </div>
-    <div class="testimonials" id="testimonials">
-        <h2>الشهادات</h2>
-        <div class="testimonial">
-            <p>خدمة ممتازة، شكراً على كتابة السيرة الذاتية الاحترافية</p>
-            <p>- محمد</p>
-        </div>
-        <div class="testimonial">
-            <p>صفحتي على LinkedIn أصبحت أكثر جاذبية بعد تحسينها من قبلكم</p>
-            <p>- فاطمة</p>
+        <div class="feature">
+            <h2>تحسين صفحة LinkedIn</h2>
+            <p>نقدم لك تحسين صفحة LinkedIn لزيادة فرص العمل</p>
         </div>
     </div>
-    <div class="contact" id="contact">
-        <h2>اتصل بنا</h2>
+    <div class="testimonials" data-aos="fade-up">
+        <h2>آراء العملاء</h2>
+        <p>العملاء راضون عن خدماتنا</p>
+    </div>
+    <div class="contact-form" data-aos="fade-up">
+        <h2>تواصل معنا</h2>
         <form>
-            <input type="text" placeholder="الاسم">
-            <input type="email" placeholder="البريد الإلكتروني">
-            <textarea placeholder="الرسالة"></textarea>
-            <button>إرسال</button>
+            <div class="mb-3">
+                <label for="name" class="form-label">الاسم</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">البريد الإلكتروني</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">الرسالة</label>
+                <textarea class="form-control" id="message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">إرسال</button>
         </form>
-        <a href="https://wa.me/966123456789" target="_blank">تواصل معنا على WhatsApp</a>
     </div>
+    <div class="footer">
+        <p>&copy; 2023 خدمات السيرة الذاتية</p>
+        <a href="https://wa.me/1234567890" target="_blank"><i class="fa fa-whatsapp"></i> تواصل معنا على واتساب</a>
+    </div>
+    <button class="btn btn-light" id="dark-mode-btn">الوضع الداكن</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/js/all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
     <script>
-        // إضافة حدث إرسال للفورم
-        document.querySelector('form').addEventListener('submit', (e) => {
+        AOS.init();
+        const darkModeBtn = document.getElementById('dark-mode-btn');
+        darkModeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+        });
+        const contactForm = document.querySelector('.contact-form form');
+        contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            // إرسال البيانات إلى الخادم
-            console.log('البيانات تم إرسالها');
+            alert('تم إرسال الرسالة بنجاح!');
         });
     </script>
 </body>
