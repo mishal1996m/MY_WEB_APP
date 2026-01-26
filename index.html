@@ -2,68 +2,67 @@
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرة الذاتية</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <title>مطعم سمك</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #1a1d23;
-        }
-        .glass {
-            backdrop-filter: blur(16px);
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        :root {
+            --font-inter: 'Inter', sans-serif;
+            --font-cairo: 'Cairo', sans-serif;
         }
     </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-900 text-slate-50">
-    <nav class="sticky top-0 bg-slate-900 py-4 glass flex justify-center">
-        <h1 class="text-2xl font-bold text-slate-50">سيرة الذاتية</h1>
+<body class="bg-slate-950 text-slate-50" dir="rtl">
+    <nav class="sticky top-0 bg-white/5 backdrop-blur-lg border border-white/10 py-4">
+        <div class="container mx-auto px-4">
+            <h1 class="text-2xl font-bold">مطعم سمك</h1>
+        </div>
     </nav>
-    <main class="container mx-auto p-4 pt-6 lg:p-12 lg:pt-20">
-        <section class="hero flex flex-col lg:flex-row justify-center items-center">
-            <h1 class="text-4xl font-bold text-slate-50 mb-4 lg:mb-0 lg:mr-4">سيرة الذاتية</h1>
-            <img src="https://image.pollinations.ai/prompt/professional-resume-cv-minimalist-design-workspace?nologo=true&width=800&height=600" class="rounded-xl shadow-2xl lg:w-1/2" alt="سيرة الذاتية">
-        </section>
-        <section class="pricing mt-12">
-            <div class="card glass p-4 rounded-xl shadow-2xl">
-                <h2 class="text-2xl font-bold text-slate-50 mb-4">السعر</h2>
-                <p class="text-4xl font-bold text-indigo-500 mb-4">150</p>
-                <button class="bg-teal-400 hover:bg-teal-500 text-slate-50 font-bold py-2 px-4 rounded" onclick="window.open('https://api.whatsapp.com/send?phone=+201000000000&text=سيرة الذاتية')">اطلب الأن</button>
+    <section class="hero py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl font-bold mb-4">سيرة الذاتية</h1>
+            <img src="https://image.pollinations.ai/prompt/professional-resume-cv-minimalist-design-workspace?nologo=true&width=1080&height=720" class="rounded-xl shadow-2xl w-full" alt="سيرة الذاتية">
+            <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mt-4" onclick="window.open('https://wa.me/?text=سيرة الذاتية')">اطلب الآن</button>
+        </div>
+    </section>
+    <section class="pricing py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-4">اسعارنا</h1>
+            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
+                <h2 class="text-2xl font-bold mb-2">سيرة الذاتية</h2>
+                <p class="text-xl font-bold mb-4">150</p>
+                <p class="text-lg">سعر سيرة الذاتية</p>
             </div>
-        </section>
-        <section class="features mt-12">
-            <h2 class="text-2xl font-bold text-slate-50 mb-4">المميزات</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                <div class="card glass p-4 rounded-xl shadow-2xl">
+        </div>
+    </section>
+    <section class="features py-20">
+        <div class="container mx-auto px-4">
+            <h1 class="text-3xl font-bold mb-4">ميزاتنا</h1>
+            <div class="grid grid-cols-3 gap-4">
+                <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
                     <i class="fas fa-check text-indigo-500 text-2xl mb-2"></i>
-                    <p class="text-slate-50">تصميم احترافي</p>
+                    <h2 class="text-lg font-bold mb-2">ميزة 1</h2>
+                    <p class="text-lg">وصف ميزة 1</p>
                 </div>
-                <div class="card glass p-4 rounded-xl shadow-2xl">
+                <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
                     <i class="fas fa-check text-indigo-500 text-2xl mb-2"></i>
-                    <p class="text-slate-50">تنسيق متقن</p>
+                    <h2 class="text-lg font-bold mb-2">ميزة 2</h2>
+                    <p class="text-lg">وصف ميزة 2</p>
                 </div>
-                <div class="card glass p-4 rounded-xl shadow-2xl">
+                <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
                     <i class="fas fa-check text-indigo-500 text-2xl mb-2"></i>
-                    <p class="text-slate-50">تصميم فني</p>
+                    <h2 class="text-lg font-bold mb-2">ميزة 3</h2>
+                    <p class="text-lg">وصف ميزة 3</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
     <script>
-        // Add event listener to the button
-        document.addEventListener("DOMContentLoaded", function() {
-            const button = document.querySelector("button");
-            button.addEventListener("click", function() {
-                window.open('https://api.whatsapp.com/send?phone=+201000000000&text=سيرة الذاتية', '_blank');
-            });
-        });
+        document.fonts.load('Inter', 100);
+        document.fonts.load('Cairo', 100);
     </script>
 </body>
 </html>
