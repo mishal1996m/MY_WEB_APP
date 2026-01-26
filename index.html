@@ -1,107 +1,173 @@
-<html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-	<title>متجر سيارات فاخرة</title>
-	<style>
-		body {
-			background-color: #f0f0f0;
-			font-family: Arial, sans-serif;
-		}
-		
-		.container {
-			width: 80%;
-			margin: 40px auto;
-			background-color: #fff;
-			padding: 20px;
-			border: 1px solid #ddd;
-			border-radius: 10px;
-			box-shadow: 0 0 10px rgba(0,0,0,0.1);
-		}
-		
-		.header {
-			background-color: #333;
-			color: #fff;
-			padding: 10px;
-			text-align: center;
-		}
-		
-		.header h1 {
-			margin: 0;
-		}
-		
-		.car-list {
-			list-style: none;
-			padding: 0;
-			margin: 0;
-		}
-		
-		.car-list li {
-			margin-bottom: 20px;
-		}
-		
-		.car-list li img {
-			width: 100%;
-			height: 200px;
-			object-fit: cover;
-			border-radius: 10px 10px 0 0;
-		}
-		
-		.car-info {
-			background-color: #f7f7f7;
-			padding: 10px;
-			border: 1px solid #ddd;
-			border-top: none;
-			border-radius: 0 0 10px 10px;
-		}
-		
-		.car-info h2 {
-			margin-top: 0;
-		}
-		
-		.button {
-			background-color: #333;
-			color: #fff;
-			padding: 10px 20px;
-			border: none;
-			border-radius: 5px;
-			cursor: pointer;
-		}
-		
-		.button:hover {
-			background-color: #444;
-		}
-	</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدمات السيرة الذاتية الاحترافية</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hero {
+            background-image: url('https://source.unsplash.com/featured/?business,tech');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .services {
+            padding: 20px;
+        }
+        .services h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .service {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .service h3 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .testimonials {
+            padding: 20px;
+        }
+        .testimonials h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .testimonial {
+            background-color: #f7f7f7;
+            padding: 20px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .testimonial p {
+            font-size: 18px;
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+        .contact {
+            padding: 20px;
+        }
+        .contact h2 {
+            font-size: 36px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .contact input, .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+        }
+        .contact button {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .contact button:hover {
+            background-color: #3e8e41;
+        }
+    </style>
 </head>
 <body>
-	<div class="container">
-		<div class="header">
-			<h1>متجر سيارات فاخرة</h1>
-		</div>
-		<ul class="car-list">
-			<li>
-				<img src="https://picsum.photos/200/300" alt="سيارة فاخرة 1">
-				<div class="car-info">
-					<h2>سيارة فاخرة 1</h2>
-					<p>وصف السيارة الفاخرة 1</p>
-					<button class="button">شراء</button>
-				</div>
-			</li>
-			<li>
-				<img src="https://picsum.photos/200/301" alt="سيارة فاخرة 2">
-				<div class="car-info">
-					<h2>سيارة فاخرة 2</h2>
-					<p>وصف السيارة الفاخرة 2</p>
-					<button class="button">شراء</button>
-				</div>
-			</li>
-			<li>
-				<img src="https://picsum.photos/200/302" alt="سيارة فاخرة 3">
-				<div class="car-info">
-					<h2>سيارة فاخرة 3</h2>
-					<p>وصف السيارة الفاخرة 3</p>
-					<button class="button">شراء</button>
-				</div>
-			</li>
-		</ul>
-	</div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">خدمات السيرة الذاتية الاحترافية</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonials">الشهادات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">اتصل بنا</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="hero">
+        <h1>خدمات السيرة الذاتية الاحترافية</h1>
+    </div>
+    <div class="services" id="services">
+        <h2>الخدمات</h2>
+        <div class="service">
+            <h3>كتابة السيرة الذاتية</h3>
+            <p>نقدم لك كتابة سيرة ذاتية احترافية تعكس مهاراتك وخبراتك</p>
+            <p>السعر: 500 ريال</p>
+        </div>
+        <div class="service">
+            <h3>تحسين صفحة LinkedIn</h3>
+            <p>نحسن صفحتك على LinkedIn لجذب المزيد من العملاء والمهنيين</p>
+            <p>السعر: 300 ريال</p>
+        </div>
+    </div>
+    <div class="testimonials" id="testimonials">
+        <h2>الشهادات</h2>
+        <div class="testimonial">
+            <p>خدمة ممتازة، شكراً على كتابة السيرة الذاتية الاحترافية</p>
+            <p>- محمد</p>
+        </div>
+        <div class="testimonial">
+            <p>صفحتي على LinkedIn أصبحت أكثر جاذبية بعد تحسينها من قبلكم</p>
+            <p>- فاطمة</p>
+        </div>
+    </div>
+    <div class="contact" id="contact">
+        <h2>اتصل بنا</h2>
+        <form>
+            <input type="text" placeholder="الاسم">
+            <input type="email" placeholder="البريد الإلكتروني">
+            <textarea placeholder="الرسالة"></textarea>
+            <button>إرسال</button>
+        </form>
+        <a href="https://wa.me/966123456789" target="_blank">تواصل معنا على WhatsApp</a>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // إضافة حدث إرسال للفورم
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // إرسال البيانات إلى الخادم
+            console.log('البيانات تم إرسالها');
+        });
+    </script>
 </body>
 </html>
