@@ -1,68 +1,76 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مطعم سمك</title>
+    <title>Smart Gym</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        :root {
-            --font-inter: 'Inter', sans-serif;
-            --font-cairo: 'Cairo', sans-serif;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
     </style>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-slate-950 text-slate-50" dir="rtl">
+<body class="bg-slate-950 text-slate-50">
     <nav class="sticky top-0 bg-white/5 backdrop-blur-lg border border-white/10 py-4">
-        <div class="container mx-auto px-4">
-            <h1 class="text-2xl font-bold">مطعم سمك</h1>
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">Smart Gym</h1>
+            <ul class="flex space-x-4">
+                <li><a href="#" class="text-slate-50 hover:text-indigo-500">Home</a></li>
+                <li><a href="#" class="text-slate-50 hover:text-indigo-500">About</a></li>
+                <li><a href="#" class="text-slate-50 hover:text-indigo-500">Contact</a></li>
+            </ul>
         </div>
     </nav>
     <section class="hero py-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-5xl font-bold mb-4">سيرة الذاتية</h1>
-            <img src="https://image.pollinations.ai/prompt/professional-resume-cv-minimalist-design-workspace?nologo=true&width=1080&height=720" class="rounded-xl shadow-2xl w-full" alt="سيرة الذاتية">
-            <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded mt-4" onclick="window.open('https://wa.me/?text=سيرة الذاتية')">اطلب الآن</button>
+        <div class="container mx-auto flex flex-col items-center justify-center">
+            <h1 class="text-5xl font-bold mb-4">Get Fit with Smart Gym</h1>
+            <p class="text-lg mb-8">Join our community and start your fitness journey today!</p>
+            <img src="https://image.pollinations.ai/prompt/modern-gym-equipment?nologo=true&width=1080&height=720" class="rounded-xl shadow-2xl w-full md:w-1/2 lg:w-1/3" alt="Gym Equipment">
         </div>
     </section>
     <section class="pricing py-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-3xl font-bold mb-4">اسعارنا</h1>
-            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
-                <h2 class="text-2xl font-bold mb-2">سيرة الذاتية</h2>
-                <p class="text-xl font-bold mb-4">150</p>
-                <p class="text-lg">سعر سيرة الذاتية</p>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl">
+                <h2 class="text-2xl font-bold mb-2">Basic</h2>
+                <p class="text-lg mb-2">Access to gym, personal training</p>
+                <p class="text-lg mb-4">200</p>
+                <p class="text-lg mb-4">Workout Plan: Cardio exercises</p>
+                <a href="https://wa.me/1234567890?text=I%20am%20interested%20in%20the%20Basic%20package" class="bg-indigo-500 hover:bg-indigo-700 text-slate-50 py-2 px-4 rounded-xl">Join Now</a>
+            </div>
+            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl">
+                <h2 class="text-2xl font-bold mb-2">Pro</h2>
+                <p class="text-lg mb-2">Access to gym, personal training, group classes</p>
+                <p class="text-lg mb-4">350</p>
+                <p class="text-lg mb-4">Workout Plan: Strength training</p>
+                <a href="https://wa.me/1234567890?text=I%20am%20interested%20in%20the%20Pro%20package" class="bg-indigo-500 hover:bg-indigo-700 text-slate-50 py-2 px-4 rounded-xl">Join Now</a>
+            </div>
+            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl">
+                <h2 class="text-2xl font-bold mb-2">VIP</h2>
+                <p class="text-lg mb-2">Access to gym, personal training, group classes, private coaching</p>
+                <p class="text-lg mb-4">500</p>
+                <p class="text-lg mb-4">Workout Plan: Personalized workout plan</p>
+                <a href="https://wa.me/1234567890?text=I%20am%20interested%20in%20the%20VIP%20package" class="bg-indigo-500 hover:bg-indigo-700 text-slate-50 py-2 px-4 rounded-xl">Join Now</a>
             </div>
         </div>
     </section>
     <section class="features py-20">
-        <div class="container mx-auto px-4">
-            <h1 class="text-3xl font-bold mb-4">ميزاتنا</h1>
-            <div class="grid grid-cols-3 gap-4">
-                <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
-                    <i class="fas fa-check text-indigo-500 text-2xl mb-2"></i>
-                    <h2 class="text-lg font-bold mb-2">ميزة 1</h2>
-                    <p class="text-lg">وصف ميزة 1</p>
-                </div>
-                <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
-                    <i class="fas fa-check text-indigo-500 text-2xl mb-2"></i>
-                    <h2 class="text-lg font-bold mb-2">ميزة 2</h2>
-                    <p class="text-lg">وصف ميزة 2</p>
-                </div>
-                <div class="card bg-white/5 backdrop-blur-lg border border-white/10 py-4 px-6 rounded">
-                    <i class="fas fa-check text-indigo-500 text-2xl mb-2"></i>
-                    <h2 class="text-lg font-bold mb-2">ميزة 3</h2>
-                    <p class="text-lg">وصف ميزة 3</p>
-                </div>
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl">
+                <h2 class="text-2xl font-bold mb-2">Cardio Exercises</h2>
+                <p class="text-lg mb-4">Get your heart rate up with our cardio exercises</p>
+                <img src="https://image.pollinations.ai/prompt/cardio-exercises?nologo=true&width=1080&height=720" class="rounded-xl shadow-2xl w-full md:w-1/2 lg:w-1/3" alt="Cardio Exercises">
+            </div>
+            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl">
+                <h2 class="text-2xl font-bold mb-2">Strength Training</h2>
+                <p class="text-lg mb-4">Build muscle with our strength training exercises</p>
+                <img src="https://image.pollinations.ai/prompt/strength-training?nologo=true&width=1080&height=720" class="rounded-xl shadow-2xl w-full md:w-1/2 lg:w-1/3" alt="Strength Training">
+            </div>
+            <div class="card bg-white/5 backdrop-blur-lg border border-white/10 p-4 rounded-xl">
+                <h2 class="text-2xl font-bold mb-2">Personalized Workout Plan</h2>
+                <p class="text-lg mb-4">Get a personalized workout plan tailored to your needs</p>
+                <img src="https://image.pollinations.ai/prompt/personalized-workout-plan?nologo=true&width=1080&height=720" class="rounded-xl shadow-2xl w-full md:w-1/2 lg:w-1/3" alt="Personalized Workout Plan">
             </div>
         </div>
     </section>
-    <script>
-        document.fonts.load('Inter', 100);
-        document.fonts.load('Cairo', 100);
-    </script>
 </body>
 </html>
