@@ -1,117 +1,183 @@
-<!-- frontend/index.html -->
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة المحاسبة</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>منصة محاسبيه سحابية</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <!--landing page-->
-    <div class="landing-page">
-        <h1>منصة المحاسبة</h1>
-        <p>منصة سحابية متكاملة للشركات الصغيرة والمتوسطة</p>
-        <button>تسجيل الدخول</button>
-        <button>تسجيل</button>
+<body class="bg-slate-100">
+    <!-- Sidebar -->
+    <div class="fixed top-0 left-0 h-screen w-64 bg-slate-800 text-slate-200 flex flex-col justify-between">
+        <div class="p-4">
+            <h2 class="text-2xl font-bold">منصة محاسبيه سحابية</h2>
+        </div>
+        <ul>
+            <li class="p-4 hover:bg-slate-700"><a href="#">الرئيسية</a></li>
+            <li class="p-4 hover:bg-slate-700"><a href="#">المنتجات</a></li>
+            <li class="p-4 hover:bg-slate-700"><a href="#">الفواتير</a></li>
+        </ul>
+        <div class="p-4">
+            <button class="bg-slate-900 text-slate-200 py-2 px-4 rounded">تسجيل خروج</button>
+        </div>
     </div>
-    <!-- auth pages -->
-    <div class="auth-pages">
-        <form>
-            <label>اسم المستخدم</label>
-            <input type="text" name="username">
-            <label>كلمة المرور</label>
-            <input type="password" name="password">
-            <button>تسجيل الدخول</button>
-        </form>
-        <form>
-            <label>اسم المستخدم</label>
-            <input type="text" name="username">
-            <label>كلمة المرور</label>
-            <input type="password" name="password">
-            <label>تأكيد كلمة المرور</label>
-            <input type="password" name="confirm-password">
-            <button>تسجيل</button>
-        </form>
+    <!-- Content -->
+    <div class="ml-64 p-4">
+        <h1 class="text-3xl font-bold">سيرة الذاتية</h1>
+        <p class="text-lg">سعر: 150</p>
+        <p class="text-lg">وصف: لا يوجد وصف</p>
     </div>
-    <!-- dashboard -->
-    <div class="dashboard">
-        <h1>لوحة التحكم</h1>
-        <button>الفواتير</button>
-        <button>العملاء</button>
-        <button>المنتجات</button>
-        <button>المصروفات</button>
-        <button>المدفوعات</button>
-        <button>التقارير</button>
-        <button>الضريبة</button>
-        <button>الإعدادات</button>
-        <button>الدعم</button>
-    </div>
-    <!-- scripts -->
-    <script src="script.js"></script>
 </body>
 </html>
 
 
-css
-/* frontend/styles.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-}
+#### لوحة التحكم الإدارية
 
-.landing-page {
-    text-align: center;
-    padding: 20px;
-}
 
-.auth-pages {
-    padding: 20px;
-}
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم الإدارية</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-100">
+    <!-- Sidebar -->
+    <div class="fixed top-0 left-0 h-screen w-64 bg-slate-800 text-slate-200 flex flex-col justify-between">
+        <div class="p-4">
+            <h2 class="text-2xl font-bold">لوحة التحكم الإدارية</h2>
+        </div>
+        <ul>
+            <li class="p-4 hover:bg-slate-700"><a href="#">المستخدمون</a></li>
+            <li class="p-4 hover:bg-slate-700"><a href="#">الشركات</a></li>
+            <li class="p-4 hover:bg-slate-700"><a href="#">الخطط</a></li>
+        </ul>
+        <div class="p-4">
+            <button class="bg-slate-900 text-slate-200 py-2 px-4 rounded">تسجيل خروج</button>
+        </div>
+    </div>
+    <!-- Content -->
+    <div class="ml-64 p-4">
+        <h1 class="text-3xl font-bold">المستخدمون</h1>
+        <table class="w-full table-auto">
+            <thead>
+                <tr>
+                    <th class="px-4 py-2">اسم المستخدم</th>
+                    <th class="px-4 py-2">الشركة</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="px-4 py-2">مستخدم 1</td>
+                    <td class="px-4 py-2">شركة 1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
 
-.dashboard {
-    padding: 20px;
-}
 
-button {
-    background-color: #4CAF50;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #3e8e41;
-}
-
+#### النظام الخلفي
 
 javascript
-// frontend/script.js
-const loginButton = document.querySelector('button[type="submit"]');
-const registerButton = document.querySelector('button[type="submit"]');
-
-loginButton.addEventListener('click', () => {
-    // login logic
-});
-
-registerButton.addEventListener('click', () => {
-    // register logic
-});
-
-
-javascript
-// backend/server.js
 const express = require('express');
 const app = express();
 const port = 3000;
 
 app.use(express.json());
 
-app.get('/api/data', (req, res) => {
-    // return data
-    res.json({ message: 'Hello World!' });
+// المستخدمون
+app.get('/users', (req, res) => {
+    res.json([
+        { id: 1, name: 'مستخدم 1', company: 'شركة 1' },
+        { id: 2, name: 'مستخدم 2', company: 'شركة 2' },
+    ]);
 });
 
-app.listen(port, () =>
+// الشركات
+app.get('/companies', (req, res) => {
+    res.json([
+        { id: 1, name: 'شركة 1' },
+        { id: 2, name: 'شركة 2' },
+    ]);
+});
+
+// الخطط
+app.get('/plans', (req, res) => {
+    res.json([
+        { id: 1, name: 'خطة 1' },
+        { id: 2, name: 'خطة 2' },
+    ]);
+});
+
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`);
+});
+
+
+#### قاعدة البيانات
+
+sql
+CREATE TABLE users (
+    id INT PRIMARY KEY,
+    name VARCHAR(255),
+    company_id INT,
+    FOREIGN KEY (company_id) REFERENCES companies(id)
+);
+
+CREATE TABLE companies (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+CREATE TABLE plans (
+    id INT PRIMARY KEY,
+    name VARCHAR(255)
+);
+
+
+#### الخصائص المحاسبية
+
+javascript
+// إنشاء وإدارة الفواتير
+app.post('/invoices', (req, res) => {
+    const invoice = {
+        id: 1,
+        date: new Date(),
+        total: 100,
+        items: [
+            { id: 1, name: 'عنصر 1', price: 50 },
+            { id: 2, name: 'عنصر 2', price: 50 },
+        ],
+    };
+    res.json(invoice);
+});
+
+// تصدير الفاتورة PDF
+app.get('/invoices/:id/pdf', (req, res) => {
+    const invoice = {
+        id: 1,
+        date: new Date(),
+        total: 100,
+        items: [
+            { id: 1, name: 'عنصر 1', price: 50 },
+            { id: 2, name: 'عنصر 2', price: 50 },
+        ],
+    };
+    res.json(invoice);
+});
+
+// تتبع المدفوعات
+app.post('/payments', (req, res) => {
+    const payment = {
+        id: 1,
+        date: new Date(),
+        amount: 100,
+    };
+    res.json(payment);
+});
+
+// تسجيل المصروفات
+app.post('/expenses', (req, res) =>
