@@ -7,7 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {
-            background-color: #2f4f7f;
+            background-color: #121212;
+            color: #ffffff;
         }
         .glassmorphism {
             background: rgba(255, 255, 255, 0.05);
@@ -16,25 +17,49 @@
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-50">
-    <nav class="sticky top-0 glassmorphism p-4 flex justify-between">
-        <h1 class="text-2xl font-bold">سيرة الذاتية</h1>
+<body>
+    <nav class="sticky top-0 bg-slate-950 py-4">
+        <div class="container mx-auto flex justify-between">
+            <h1 class="text-2xl font-bold text-slate-50">سيرة الذاتية</h1>
+        </div>
     </nav>
-    <section class="hero h-screen flex flex-col justify-center items-center">
-        <h1 class="text-5xl font-bold mb-4">سيرة الذاتية</h1>
-        <img src="https://image.pollinations.ai/prompt/%D8%B3%D9%8A%D8%B1%D8%A9-%D8%A7%D9%84%D8%B0%D8%A7%D8%AA%D9%8A%D8%A9?width=1080&height=720&nologo=true" alt="سيرة الذاتية" class="w-1/2 h-1/2 object-cover mb-4">
-        <button class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded" onclick="window.open('https://wa.me/?text=سيرة الذاتية')">
-            إضغط هنا للتواصل
-        </button>
-    </section>
-    <section class="pricing grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
-        <div class="glassmorphism p-4 flex flex-col justify-center items-center">
-            <h2 class="text-2xl font-bold mb-2">السعر</h2>
-            <p class="text-xl font-bold mb-2">150</p>
+    <section class="hero py-20">
+        <div class="container mx-auto flex flex-col items-center justify-center">
+            <h1 class="text-5xl font-bold text-slate-50 mb-4">سيرة الذاتية</h1>
+            <img src="https://image.pollinations.ai/prompt/سيرة-الذاتية-cinematic-lighting-shot-on-85mm-lens-f-1.8-hyper-realistic-8k-architectural-photography-highly-detailed-real-skin-textures-natural-sunlight-sharp-focus?width=1080&height=720&nologo=true" alt="سيرة الذاتية" class="w-full h-full object-cover glassmorphism rounded-3xl mb-4">
+            <button class="bg-indigo-500 hover:bg-indigo-700 text-slate-50 font-bold py-2 px-4 rounded" onclick="window.open('https://wa.me/?text=سيرة الذاتية', '_blank')">اطلب الأن</button>
         </div>
     </section>
-    <script>
-        // لا يوجد كود هنا
-    </script>
+    <section class="pricing py-20">
+        <div class="container mx-auto flex flex-col items-center justify-center">
+            <h1 class="text-3xl font-bold text-slate-50 mb-4">سعر سيرة الذاتية</h1>
+            <div class="flex flex-col items-center justify-center">
+                <h2 class="text-2xl font-bold text-slate-50 mb-2">150</h2>
+                <p class="text-slate-50">ريال</p>
+            </div>
+        </div>
+    </section>
+    <section class="features py-20">
+        <div class="container mx-auto flex flex-col items-center justify-center">
+            <h1 class="text-3xl font-bold text-slate-50 mb-4">ميزات سيرة الذاتية</h1>
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full md:w-1/3 xl:w-1/3 p-6">
+                    <i class="fas fa-lock text-indigo-500 text-2xl mb-2"></i>
+                    <h2 class="text-2xl font-bold text-slate-50 mb-2">أمان</h2>
+                    <p class="text-slate-50">نحن نضمن لكم أمان كامل في عملية الطلب</p>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/3 p-6">
+                    <i class="fas fa-cog text-teal-400 text-2xl mb-2"></i>
+                    <h2 class="text-2xl font-bold text-slate-50 mb-2">دقة</h2>
+                    <p class="text-slate-50">نحن نضمن لكم دقة في عمل سيرة الذاتية</p>
+                </div>
+                <div class="w-full md:w-1/3 xl:w-1/3 p-6">
+                    <i class="fas fa-clock text-indigo-500 text-2xl mb-2"></i>
+                    <h2 class="text-2xl font-bold text-slate-50 mb-2">سرعة</h2>
+                    <p class="text-slate-50">نحن نضمن لكم سرعة في عمل سيرة الذاتية</p>
+                </div>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
