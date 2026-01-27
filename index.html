@@ -1,57 +1,117 @@
+<!-- frontend/index.html -->
 <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سيرة الذاتية</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            background-color: #121212;
-            font-family: 'Cairo', sans-serif;
-        }
-        .glassmorphism {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-    </style>
+    <title>منصة المحاسبة</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="sticky top-0 bg-slate-950 text-slate-50 py-4">
-        <div class="container mx-auto flex justify-between">
-            <h1 class="text-2xl font-bold">سيرة الذاتية</h1>
-        </div>
-    </nav>
-    <section class="hero py-20">
-        <div class="container mx-auto flex flex-col items-center">
-            <h1 class="text-5xl font-bold mb-4">سيرة الذاتية</h1>
-            <img src="https://image.pollinations.ai/prompt/luxury-modern-cv-template?width=1080&height=720&nologo=true" alt="سيرة الذاتية" class="w-full md:w-1/2 lg:w-1/3 xl:w-1/4 mb-4">
-            <p class="text-lg text-slate-50 mb-4">سعر: <span class="text-indigo-500">150</span> ريال</p>
-            <a href="https://wa.me/?text=سيرة الذاتية" class="bg-indigo-500 hover:bg-teal-400 text-slate-50 font-bold py-2 px-4 rounded" target="_blank">اطلب الأن</a>
-        </div>
-    </section>
-    <section class="pricing py-20">
-        <div class="container mx-auto">
-            <h1 class="text-3xl font-bold mb-4">الأسعار</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="glassmorphism p-4 rounded">
-                    <h2 class="text-2xl font-bold mb-2">سيرة الذاتية</h2>
-                    <p class="text-lg text-slate-50 mb-2">سعر: <span class="text-indigo-500">150</span> ريال</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="features py-20">
-        <div class="container mx-auto">
-            <h1 class="text-3xl font-bold mb-4">الميزات</h1>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="glassmorphism p-4 rounded">
-                    <h2 class="text-2xl font-bold mb-2">سيرة الذاتية</h2>
-                    <p class="text-lg text-slate-50 mb-2">سعر: <span class="text-indigo-500">150</span> ريال</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!--landing page-->
+    <div class="landing-page">
+        <h1>منصة المحاسبة</h1>
+        <p>منصة سحابية متكاملة للشركات الصغيرة والمتوسطة</p>
+        <button>تسجيل الدخول</button>
+        <button>تسجيل</button>
+    </div>
+    <!-- auth pages -->
+    <div class="auth-pages">
+        <form>
+            <label>اسم المستخدم</label>
+            <input type="text" name="username">
+            <label>كلمة المرور</label>
+            <input type="password" name="password">
+            <button>تسجيل الدخول</button>
+        </form>
+        <form>
+            <label>اسم المستخدم</label>
+            <input type="text" name="username">
+            <label>كلمة المرور</label>
+            <input type="password" name="password">
+            <label>تأكيد كلمة المرور</label>
+            <input type="password" name="confirm-password">
+            <button>تسجيل</button>
+        </form>
+    </div>
+    <!-- dashboard -->
+    <div class="dashboard">
+        <h1>لوحة التحكم</h1>
+        <button>الفواتير</button>
+        <button>العملاء</button>
+        <button>المنتجات</button>
+        <button>المصروفات</button>
+        <button>المدفوعات</button>
+        <button>التقارير</button>
+        <button>الضريبة</button>
+        <button>الإعدادات</button>
+        <button>الدعم</button>
+    </div>
+    <!-- scripts -->
+    <script src="script.js"></script>
 </body>
 </html>
+
+
+css
+/* frontend/styles.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.landing-page {
+    text-align: center;
+    padding: 20px;
+}
+
+.auth-pages {
+    padding: 20px;
+}
+
+.dashboard {
+    padding: 20px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+
+javascript
+// frontend/script.js
+const loginButton = document.querySelector('button[type="submit"]');
+const registerButton = document.querySelector('button[type="submit"]');
+
+loginButton.addEventListener('click', () => {
+    // login logic
+});
+
+registerButton.addEventListener('click', () => {
+    // register logic
+});
+
+
+javascript
+// backend/server.js
+const express = require('express');
+const app = express();
+const port = 3000;
+
+app.use(express.json());
+
+app.get('/api/data', (req, res) => {
+    // return data
+    res.json({ message: 'Hello World!' });
+});
+
+app.listen(port, () =>
