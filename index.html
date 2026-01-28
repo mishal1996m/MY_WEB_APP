@@ -2,177 +2,734 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام إدارة الموارد البشرية</title>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.16.5/dist/cdn.min.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.4.0/css/daisyui.min.css" rel="stylesheet" />
-    <style>
-        /* Custom CSS - Tailwind & DaisyUI overrides */
-        body {
-            background-color: #f8f9fa;
-            font-family: sans-serif;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #0062cc;
-            border-color: #0062cc;
-        }
-
-        .table {
-            width: 100%;
-        }
-
-        .stats {
-            background-color: #fff;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 5px 0px;
-        }
-
-        .stats__value {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #007bff;
-        }
-
-        .card {
-            background-color: #fff;
-            padding: 1rem;
-            border-radius: 8px;
-            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 5px 0px;
-        }
-
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-
-        .modal-content {
-            background-color: #fff;
-            border-radius: 8px;
-            margin: 20% auto;
-            padding: 2rem;
-            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-            max-width: 80%;
-        }
-    </style>
+    <title>نظام إدارة العقارات الفاخرة</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.12.0/dist/cdn.min.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body x-data="{ currentTab: 'dashboard', showModal: false }">
-    <div class="bg-gray-100 p-8">
-        <nav>
-            <ul class="flex items-center justify-between">
-                <li>
-                    <button @click="currentTab = 'dashboard'" :class="{ 'active': currentTab === 'dashboard' }">الرئيسية</button>
-                </li>
-                <li>
-                    <button @click="currentTab = 'clients'" :class="{ 'active': currentTab === 'clients' }">الموظفين</button>
-                </li>
-                <li>
-                    <button @click="currentTab = 'salaries'" :class="{ 'active': currentTab === 'salaries' }">الرواتب</button>
-                </li>
-                <li>
-                    <button @click="currentTab = 'settings'" :class="{ 'active': currentTab === 'settings' }">الإعدادات</button>
-                </li>
-            </ul>
-        </nav>
-
-        <main class="p-8">
-            <div x-show="currentTab === 'dashboard'" class="stats shadow">
-                <div class="stats-circle text-2xl font-bold">12</div>
-                <div class="stats-item">الموظفين</div>
-                <div class="stats-circle text-2xl font-bold">5</div>
-                <div class="stats-item">الرواتب</div>
+<body class="bg-gray-50" x-data="realEstateApp()">
+    <!-- شريط التنقل العلوي -->
+    <nav class="bg-indigo-900 text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <i class="fas fa-building text-2xl"></i>
+                <h1 class="text-xl font-bold">نظام إدارة العقارات</h1>
             </div>
-
-            <div x-show="currentTab === 'clients'" class="p-8">
-                <h2>قائمة الموظفين</h2>
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th>الاسم</th>
-                            <th>الوظيفة</th>
-                            <th>الراتب</th>
-                            <th>الحذف</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>أحمد محمد</td>
-                            <td>مهندس برمجيات</td>
-                            <td>10000</td>
-                            <button @click="showModal = true" class="btn btn-red">حذف</button>
-                        </tr>
-                        <tr>
-                            <td>سارة أحمد</td>
-                            <td>مصممة جرافيك</td>
-                            <td>8000</td>
-                            <button @click="showModal = true" class="btn btn-red">حذف</button>
-                        </tr>
-                        <tr>
-                            <td>خالد علي</td>
-                            <td>محلل بيانات</td>
-                            <td>9000</td>
-                            <button @click="showModal = true" class="btn btn-red">حذف</button>
-                        </tr>
-                        <tr>
-                            <td>ليلى عبد الله</td>
-                            <td>مسؤولة موارد بشرية</td>
-                            <td>12000</td>
-                            <button @click="showModal = true" class="btn btn-red">حذف</button>
-                        </tr>
-                        <tr>
-                            <td>يوسف حسن</td>
-                            <td>مدير تسويق</td>
-                            <td>15000</td>
-                            <button @click="showModal = true" class="btn btn-red">حذف</button>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="flex items-center space-x-6 space-x-reverse">
+                <button @click="currentTab = 'dashboard'" class="hover:text-indigo-200 transition">
+                    <i class="fas fa-home mr-1"></i> الرئيسية
+                </button>
+                <button @click="currentTab = 'properties'" class="hover:text-indigo-200 transition">
+                    <i class="fas fa-house-user mr-1"></i> العقارات
+                </button>
+                <button @click="currentTab = 'clients'" class="hover:text-indigo-200 transition">
+                    <i class="fas fa-users mr-1"></i> العملاء
+                </button>
+                <button @click="currentTab = 'contracts'" class="hover:text-indigo-200 transition">
+                    <i class="fas fa-file-contract mr-1"></i> العقود
+                </button>
             </div>
-
-            <div x-show="currentTab === 'salaries'" class="p-8">
-                <h2>إدارة الرواتب</h2>
-                <p>سيتم إضافة محتوى الرواتب هنا لاحقاً.</p>
-            </div>
-
-            <div x-show="currentTab === 'settings'" class="p-8">
-                <h2>الإعدادات</h2>
-                <p>سيتم إضافة محتوى الإعدادات هنا لاحقاً.</p>
-            </div>
-        </main>
-
-        <aside class="bg-white p-8 rounded-md shadow-md">
-            <button @click="showModal = true" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">إضافة موظف</button>
-
-            <div class="modal" x-show="showModal">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <span class="font-bold text-lg text-gray-700">إضافة موظف</span>
-                        <button type="button" class="close" @click="showModal = false">×</button>
+            <div class="flex items-center space-x-4 space-x-reverse">
+                <div class="avatar online">
+                    <div class="w-10 rounded-full">
+                        <img src="https://i.pravatar.cc/150?img=3" />
                     </div>
-                    <div class="modal-body">
-                       <p>أدخل بيانات الموظف:</p>
-                       <input type="text" placeholder="الاسم" class="input input-bordered w-full">
-                       <input type="text" placeholder="الوظيفة" class="input input-bordered w-full">
-                       <input type="number" placeholder="الراتب" class="input input-bordered w-full">
+                </div>
+                <span class="font-medium">مدير النظام</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- المحتوى الرئيسي -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- لوحة التحكم -->
+        <div x-show="currentTab === 'dashboard'" class="space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+                <!-- بطاقات الإحصائيات -->
+                <div class="stats bg-white shadow">
+                    <div class="stat">
+                        <div class="stat-figure text-indigo-600">
+                            <i class="fas fa-home text-3xl"></i>
+                        </div>
+                        <div class="stat-title">إجمالي العقارات</div>
+                        <div class="stat-value text-indigo-600">47</div>
+                        <div class="stat-desc">عقار متاح للعرض</div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn-primary" @click="showModal = false">حفظ</button>
-                        <button type="button" class="btn-red" @click="showModal = false">إلغاء</button>
+                </div>
+
+                <div class="stats bg-white shadow">
+                    <div class="stat">
+                        <div class="stat-figure text-green-600">
+                            <i class="fas fa-handshake text-3xl"></i>
+                        </div>
+                        <div class="stat-title">عقود مكتملة</div>
+                        <div class="stat-value text-green-600">32</div>
+                        <div class="stat-desc">عقد هذا الشهر</div>
+                    </div>
+                </div>
+
+                <div class="stats bg-white shadow">
+                    <div class="stat">
+                        <div class="stat-figure text-blue-600">
+                            <i class="fas fa-users text-3xl"></i>
+                        </div>
+                        <div class="stat-title">عملاء جدد</div>
+                        <div class="stat-value text-blue-600">18</div>
+                        <div class="stat-desc">عميل هذا الشهر</div>
+                    </div>
+                </div>
+
+                <div class="stats bg-white shadow">
+                    <div class="stat">
+                        <div class="stat-figure text-yellow-600">
+                            <i class="fas fa-coins text-3xl"></i>
+                        </div>
+                        <div class="stat-title">إجمالي المبيعات</div>
+                        <div class="stat-value text-yellow-600">12.4M</div>
+                        <div class="stat-desc">ريال سعودي</div>
                     </div>
                 </div>
             </div>
-        </aside>
+
+            <!-- أحدث العقارات -->
+            <div class="bg-white rounded-lg shadow p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-xl font-bold text-gray-800">أحدث العقارات المضافة</h2>
+                    <button @click="currentTab = 'properties'" class="text-indigo-600 hover:text-indigo-800">
+                        عرض الكل <i class="fas fa-arrow-left ml-1"></i>
+                    </button>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure><img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="فيلا فاخرة" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">فيلا فاخرة بالرياض</h2>
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> حي السفارات</span>
+                                <span><i class="fas fa-ruler-combined mr-1"></i> 450 م²</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-lg font-bold text-indigo-700">4,250,000 ر.س</span>
+                                <div class="badge badge-success text-white">للبيع</div>
+                            </div>
+                            <div class="card-actions justify-end mt-4">
+                                <button class="btn btn-sm btn-primary">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="شقة فاخرة" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">شقة فاخرة بجدة</h2>
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> كورنيش جدة</span>
+                                <span><i class="fas fa-ruler-combined mr-1"></i> 220 م²</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-lg font-bold text-indigo-700">3,100,000 ر.س</span>
+                                <div class="badge badge-warning text-white">للإيجار</div>
+                            </div>
+                            <div class="card-actions justify-end mt-4">
+                                <button class="btn btn-sm btn-primary">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card bg-base-100 shadow-xl">
+                        <figure><img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="أرض سكنية" /></figure>
+                        <div class="card-body">
+                            <h2 class="card-title">أرض سكنية بالدمام</h2>
+                            <div class="flex justify-between text-sm text-gray-600">
+                                <span><i class="fas fa-map-marker-alt mr-1"></i> حي النخيل</span>
+                                <span><i class="fas fa-ruler-combined mr-1"></i> 800 م²</span>
+                            </div>
+                            <div class="flex justify-between items-center mt-2">
+                                <span class="text-lg font-bold text-indigo-700">1,750,000 ر.س</span>
+                                <div class="badge badge-success text-white">للبيع</div>
+                            </div>
+                            <div class="card-actions justify-end mt-4">
+                                <button class="btn btn-sm btn-primary">عرض التفاصيل</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة العقارات -->
+        <div x-show="currentTab === 'properties'" class="space-y-8">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-800">إدارة العقارات</h2>
+                <button @click="showAddPropertyModal = true" class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i> إضافة عقار جديد
+                </button>
+            </div>
+
+            <!-- فلترة العقارات -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <div class="flex flex-wrap gap-4">
+                    <select class="select select-bordered w-full md:w-auto">
+                        <option disabled selected>نوع العقار</option>
+                        <option>جميع الأنواع</option>
+                        <option>فيلا</option>
+                        <option>شقة</option>
+                        <option>أرض</option>
+                        <option>عمارة</option>
+                    </select>
+
+                    <select class="select select-bordered w-full md:w-auto">
+                        <option disabled selected>نوع العرض</option>
+                        <option>الكل</option>
+                        <option>للبيع</option>
+                        <option>للإيجار</option>
+                    </select>
+
+                    <select class="select select-bordered w-full md:w-auto">
+                        <option disabled selected>المدينة</option>
+                        <option>الكل</option>
+                        <option>الرياض</option>
+                        <option>جدة</option>
+                        <option>الدمام</option>
+                        <option>مكة</option>
+                    </select>
+
+                    <div class="relative w-full md:w-auto">
+                        <input type="text" placeholder="بحث..." class="input input-bordered w-full pr-10">
+                        <button class="absolute right-3 top-3 text-gray-500">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- جدول العقارات -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-700">
+                                <th>صورة</th>
+                                <th>اسم العقار</th>
+                                <th>النوع</th>
+                                <th>المساحة</th>
+                                <th>السعر</th>
+                                <th>الحالة</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template x-for="(property, index) in properties" :key="index">
+                                <tr>
+                                    <td>
+                                        <div class="avatar">
+                                            <div class="w-12 h-12 rounded">
+                                                <img :src="property.image" :alt="property.name" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td x-text="property.name"></td>
+                                    <td x-text="property.type"></td>
+                                    <td x-text="property.area + ' م²'"></td>
+                                    <td x-text="property.price + ' ر.س'"></td>
+                                    <td>
+                                        <span :class="{'badge-success': property.status === 'للبيع', 'badge-warning': property.status === 'للإيجار'}" 
+                                              class="badge text-white" x-text="property.status"></span>
+                                    </td>
+                                    <td>
+                                        <div class="flex space-x-2 space-x-reverse">
+                                            <button @click="editProperty(index)" class="btn btn-sm btn-info text-white">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button @click="deleteProperty(index)" class="btn btn-sm btn-error text-white">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- الترقيم -->
+                <div class="p-4 flex justify-center">
+                    <div class="join">
+                        <button class="join-item btn">«</button>
+                        <button class="join-item btn btn-active">1</button>
+                        <button class="join-item btn">2</button>
+                        <button class="join-item btn">3</button>
+                        <button class="join-item btn">4</button>
+                        <button class="join-item btn">»</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة العملاء -->
+        <div x-show="currentTab === 'clients'" class="space-y-8">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-800">إدارة العملاء</h2>
+                <button @click="showAddClientModal = true" class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i> إضافة عميل جديد
+                </button>
+            </div>
+
+            <!-- جدول العملاء -->
+            <div class="bg-white rounded-lg shadow overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="table w-full">
+                        <thead>
+                            <tr class="bg-gray-100 text-gray-700">
+                                <th>الصورة</th>
+                                <th>الاسم</th>
+                                <th>البريد الإلكتروني</th>
+                                <th>الهاتف</th>
+                                <th>عدد العقارات</th>
+                                <th>الإجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="avatar">
+                                        <div class="w-12 h-12 rounded">
+                                            <img src="https://i.pravatar.cc/150?img=5" alt="عميل" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>أحمد محمد</td>
+                                <td>ahmed@example.com</td>
+                                <td>0501234567</td>
+                                <td>3 عقارات</td>
+                                <td>
+                                    <div class="flex space-x-2 space-x-reverse">
+                                        <button class="btn btn-sm btn-info text-white">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-error text-white">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="avatar">
+                                        <div class="w-12 h-12 rounded">
+                                            <img src="https://i.pravatar.cc/150?img=11" alt="عميل" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>سارة عبدالله</td>
+                                <td>sara@example.com</td>
+                                <td>0557654321</td>
+                                <td>2 عقار</td>
+                                <td>
+                                    <div class="flex space-x-2 space-x-reverse">
+                                        <button class="btn btn-sm btn-info text-white">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-error text-white">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="avatar">
+                                        <div class="w-12 h-12 rounded">
+                                            <img src="https://i.pravatar.cc/150?img=8" alt="عميل" />
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>خالد سعيد</td>
+                                <td>khaled@example.com</td>
+                                <td>0549876543</td>
+                                <td>5 عقارات</td>
+                                <td>
+                                    <div class="flex space-x-2 space-x-reverse">
+                                        <button class="btn btn-sm btn-info text-white">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn btn-sm btn-error text-white">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- صفحة العقود -->
+        <div x-show="currentTab === 'contracts'" class="space-y-8">
+            <div class="flex justify-between items-center">
+                <h2 class="text-2xl font-bold text-gray-800">إدارة العقود</h2>
+                <button @click="showAddContractModal = true" class="btn btn-primary">
+                    <i class="fas fa-plus mr-2"></i> إضافة عقد جديد
+                </button>
+            </div>
+
+            <!-- بطاقات العقود -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">عقد بيع فيلا</h2>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span><i class="fas fa-user mr-1"></i> أحمد محمد</span>
+                            <span><i class="fas fa-home mr-1"></i> فيلا بالرياض</span>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                            <span class="font-medium">المبلغ: <span class="text-indigo-700">4,250,000 ر.س</span></span>
+                            <span class="text-sm">10/05/2023</span>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-sm btn-primary">عرض التفاصيل</button>
+                            <button class="btn btn-sm btn-error text-white">إلغاء العقد</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">عقد إيجار شقة</h2>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span><i class="fas fa-user mr-1"></i> سارة عبدالله</span>
+                            <span><i class="fas fa-home mr-1"></i> شقة بجدة</span>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                            <span class="font-medium">المبلغ: <span class="text-indigo-700">3,100,000 ر.س</span></span>
+                            <span class="text-sm">22/04/2023</span>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-sm btn-primary">عرض التفاصيل</button>
+                            <button class="btn btn-sm btn-error text-white">إلغاء العقد</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">عقد بيع أرض</h2>
+                        <div class="flex justify-between text-sm text-gray-600">
+                            <span><i class="fas fa-user mr-1"></i> خالد سعيد</span>
+                            <span><i class="fas fa-home mr-1"></i> أرض بالدمام</span>
+                        </div>
+                        <div class="flex justify-between mt-2">
+                            <span class="font-medium">المبلغ: <span class="text-indigo-700">1,750,000 ر.س</span></span>
+                            <span class="text-sm">15/03/2023</span>
+                        </div>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-sm btn-primary">عرض التفاصيل</button>
+                            <button class="btn btn-sm btn-error text-white">إلغاء العقد</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- مودال إضافة عقار -->
+    <div x-show="showAddPropertyModal" class="modal modal-open">
+        <div class="modal-box w-11/12 max-w-5xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold">إضافة عقار جديد</h3>
+                <button @click="showAddPropertyModal = false" class="btn btn-sm btn-circle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">اسم العقار</span>
+                        </label>
+                        <input type="text" placeholder="اسم العقار" class="input input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">نوع العقار</span>
+                        </label>
+                        <select class="select select-bordered w-full">
+                            <option disabled selected>اختر نوع العقار</option>
+                            <option>فيلا</option>
+                            <option>شقة</option>
+                            <option>أرض</option>
+                            <option>عمارة</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">نوع العرض</span>
+                        </label>
+                        <select class="select select-bordered w-full">
+                            <option disabled selected>اختر نوع العرض</option>
+                            <option>للبيع</option>
+                            <option>للإيجار</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">المدينة</span>
+                        </label>
+                        <select class="select select-bordered w-full">
+                            <option disabled selected>اختر المدينة</option>
+                            <option>الرياض</option>
+                            <option>جدة</option>
+                            <option>الدمام</option>
+                            <option>مكة</option>
+                            <option>المدينة</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">السعر</span>
+                        </label>
+                        <input type="number" placeholder="السعر بالريال السعودي" class="input input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">المساحة</span>
+                        </label>
+                        <input type="number" placeholder="المساحة بالمتر المربع" class="input input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">الصور</span>
+                        </label>
+                        <input type="file" class="file-input file-input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">الوصف</span>
+                        </label>
+                        <textarea class="textarea textarea-bordered h-24" placeholder="وصف العقار"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-action">
+                <button @click="showAddPropertyModal = false" class="btn btn-error">إلغاء</button>
+                <button @click="addNewProperty()" class="btn btn-primary">حفظ العقار</button>
+            </div>
+        </div>
     </div>
+
+    <!-- مودال إضافة عميل -->
+    <div x-show="showAddClientModal" class="modal modal-open">
+        <div class="modal-box w-11/12 max-w-3xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold">إضافة عميل جديد</h3>
+                <button @click="showAddClientModal = false" class="btn btn-sm btn-circle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">الاسم الكامل</span>
+                        </label>
+                        <input type="text" placeholder="الاسم الكامل" class="input input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">البريد الإلكتروني</span>
+                        </label>
+                        <input type="email" placeholder="البريد الإلكتروني" class="input input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">رقم الهاتف</span>
+                        </label>
+                        <input type="tel" placeholder="رقم الهاتف" class="input input-bordered w-full">
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">نوع العميل</span>
+                        </label>
+                        <select class="select select-bordered w-full">
+                            <option disabled selected>اختر نوع العميل</option>
+                            <option>بائع</option>
+                            <option>مشتري</option>
+                            <option>مؤجر</option>
+                            <option>مستأجر</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">صورة العميل</span>
+                        </label>
+                        <input type="file" class="file-input file-input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">ملاحظات</span>
+                        </label>
+                        <textarea class="textarea textarea-bordered h-24" placeholder="ملاحظات"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-action">
+                <button @click="showAddClientModal = false" class="btn btn-error">إلغاء</button>
+                <button class="btn btn-primary">حفظ العميل</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- مودال إضافة عقد -->
+    <div x-show="showAddContractModal" class="modal modal-open">
+        <div class="modal-box w-11/12 max-w-5xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold">إضافة عقد جديد</h3>
+                <button @click="showAddContractModal = false" class="btn btn-sm btn-circle">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">نوع العقد</span>
+                        </label>
+                        <select class="select select-bordered w-full">
+                            <option disabled selected>اختر نوع العقد</option>
+                            <option>عقد بيع</option>
+                            <option>عقد إيجار</option>
+                            <option>عقد وكالة</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">العميل</span>
+                        </label>
+                        <select class="select select-bordered w-full">
+                            <option disabled selected>اختر العميل</option>
+                            <option>أحمد محمد</option>
+                            <option>سارة عبدالله</option>
+                            <option>خالد سعيد</option>
+                        </select>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">العقار</span>
+                        </label>
+                        <select class="select select-bordered w-full">
+                            <option disabled selected>اختر العقار</option>
+                            <option>فيلا فاخرة بالرياض</option>
+                            <option>شقة فاخرة بجدة</option>
+                            <option>أرض سكنية بالدمام</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">تاريخ العقد</span>
+                        </label>
+                        <input type="date" class="input input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">المبلغ</span>
+                        </label>
+                        <input type="number" placeholder="المبلغ بالريال السعودي" class="input input-bordered w-full">
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text">مرفقات العقد</span>
+                        </label>
+                        <input type="file" class="file-input file-input-bordered w-full">
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-action">
+                <button @click="showAddContractModal = false" class="btn btn-error">إلغاء</button>
+                <button class="btn btn-primary">حفظ العقد</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function realEstateApp() {
+            return {
+                currentTab: 'dashboard',
+                showAddPropertyModal: false,
+                showAddClientModal: false,
+                showAddContractModal: false,
+                properties: [
+                    {
+                        image: 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                        name: 'فيلا فاخرة بالرياض',
+                        type: 'فيلا',
+                        area: 450,
+                        price: '4,250,000',
+                        status: 'للبيع'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                        name: 'شقة فاخرة بجدة',
+                        type: 'شقة',
+                        area: 220,
+                        price: '3,100,000',
+                        status: 'للإيجار'
+                    },
+                    {
+                        image: 'https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80',
+                        name: 'أرض سكنية بالدمام',
+                        type: 'أرض',
+                        area: 800,
+                        price: '1,750,000',
+                        status: 'للبيع'
+                    }
+                ],
+                editProperty(index) {
+                    alert(`تعديل العقار: ${this.properties[index].name}`);
+                },
+                deleteProperty(index) {
+                    if(confirm(`هل أنت متأكد من حذف العقار: ${this.properties[index].name}؟`)) {
+                        this.properties.splice(index, 1);
+                    }
+                },
+                addNewProperty() {
+                    // هنا يمكنك إضافة كود لإضافة عقار جديد
+                    alert('تم إضافة العقار بنجاح');
+                    this.showAddPropertyModal = false;
+                }
+            }
+        }
+    </script>
 </body>
 </html>
