@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Dashboard</title>
+    <title>محفظة شخصية للمصورين</title>
 
     <!-- Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -21,11 +21,11 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <div class="shadow stats bg-white p-6 rounded-md">
-                <h2 class="text-xl font-semibold">Revenue Today</h2>
+                <h2 class="text-xl font-semibold">إيرادات اليوم</h2>
                 <div class="flex items-center mt-4">
                     <div class="w-full">
-                        <div class="text-3xl text-green-600">$1,250</div>
-                        <div class="text-sm text-gray-600">Target: $1,500</div>
+                        <div class="text-3xl text-green-600">1250</div>
+                        <div class="text-sm text-gray-600">الهدف: 1500</div>
                     </div>
                     <div class="ml-4">
                         <i class="fas fa-chart-line text-2xl text-green-600"></i>
@@ -33,17 +33,28 @@
                 </div>
             </div>
 
-            <!-- Add more Dashboard Cards here -->
-
             <div class="shadow stats bg-white p-6 rounded-md">
-                <h2 class="text-xl font-semibold">New Sign-Ups</h2>
+                <h2 class="text-xl font-semibold">تسجيلات جديدة</h2>
                 <div class="flex items-center mt-4">
                     <div class="w-full">
                         <div class="text-3xl text-blue-600">25</div>
-                        <div class="text-sm text-gray-600">Record: 35</div>
+                        <div class="text-sm text-gray-600">الحدث: 35</div>
                     </div>
                     <div class="ml-4">
                         <i class="fas fa-people-add text-2xl text-blue-600"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="shadow stats bg-white p-6 rounded-md">
+                <h2 class="text-xl font-semibold">الطلبات المعلقة</h2>
+                <div class="flex items-center mt-4">
+                    <div class="w-full">
+                        <div class="text-3xl text-red-600">12</div>
+                        <div class="text-sm text-gray-600">الحدث: 18</div>
+                    </div>
+                    <div class="ml-4">
+                        <i class="fas fa-exclamation-triangle text-2xl text-red-600"></i>
                     </div>
                 </div>
             </div>
@@ -54,48 +65,100 @@
         <div class="shadow mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
             <div>
-                <h2 class="text-2xl font-semibold mb-4">Clients</h2>
+                <h2 class="text-2xl font-semibold mb-4">عملاء</h2>
                 <div class="overflow-x-auto">
                   <table class="table w-full">
                       <thead>
                           <tr>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Plan</th>
-                              <th>Joined On</th>
+                              <th>الاسم</th>
+                              <th>البريد الإلكتروني</th>
+                              <th>الخطة</th>
+                              <th>انضمام</th>
                           </tr>
                       </thead>
                       <tbody>
                           <tr>
-                              <td>John Doe</td>
-                              <td>john.doe@example.com</td>
-                              <td>Basic</td>
+                              <td>أحمد محمد</td>
+                              <td>ahmed.mohamed@example.com</td>
+                              <td>أساسي</td>
                               <td>2023-10-26</td>
                           </tr>
                           <tr>
-                              <td>Jane Smith</td>
-                              <td>jane.smith@example.com</td>
-                              <td>Pro</td>
+                              <td>سارة علي</td>
+                              <td>sara.ali@example.com</td>
+                              <td>احترافي</td>
                               <td>2023-10-25</td>
                           </tr>
                           <tr>
-                              <td>Mike Johnson</td>
-                              <td>mike.johnson@example.com</td>
-                              <td>Free</td>
+                              <td>خالد حسن</td>
+                              <td>khaled.hassan@example.com</td>
+                              <td>مجاني</td>
                               <td>2023-10-24</td>
                           </tr>
                           <tr>
-                              <td>Sarah Lee</td>
-                              <td>sarah.lee@example.com</td>
-                              <td>Pro</td>
+                              <td>ليلى عبد الله</td>
+                              <td>laila.abdullah@example.com</td>
+                              <td>احترافي</td>
                               <td>2023-10-23</td>
+                          </tr>
+                          <tr>
+                              <td>محمود ابراهيم</td>
+                              <td>mahmoud.ibrahim@example.com</td>
+                              <td>أساسي</td>
+                              <td>2023-10-22</td>
                           </tr>
                       </tbody>
                   </table>
                 </div>
             </div>
 
-            <!-- Add other sections (Products, Invoices, Expenses, Reports) here -->
+            <div>
+                <h2 class="text-2xl font-semibold mb-4">المنتجات</h2>
+                <div class="overflow-x-auto">
+                  <table class="table w-full">
+                      <thead>
+                          <tr>
+                              <th>الاسم</th>
+                              <th>الوصف</th>
+                              <th>السعر</th>
+                              <th>الكمية</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>كاميرا احترافية</td>
+                              <td>كاميرا ذات جودة عالية للصور الاحترافية</td>
+                              <td>1500</td>
+                              <td>5</td>
+                          </tr>
+                          <tr>
+                              <td>عدسة 50 مم</td>
+                              <td>عدسة ممتازة للتصوير</td>
+                              <td>250</td>
+                              <td>10</td>
+                          </tr>
+                          <tr>
+                              <td>حقيبة كاميرا</td>
+                              <td>حقيبة لحماية الكاميرا</td>
+                              <td>80</td>
+                              <td>20</td>
+                          </tr>
+                          <tr>
+                              <td>بطاقات ذاكرة</td>
+                              <td>بطاقات ذاكرة لتخزين الصور</td>
+                              <td>10</td>
+                              <td>30</td>
+                          </tr>
+                          <tr>
+                              <td>ملحقات إضاءة</td>
+                              <td>إضاءة احترافية لتحسين صورك</td>
+                              <td>120</td>
+                              <td>15</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
 
         </div> 
 
@@ -110,7 +173,7 @@
             data: {
                 labels: ['Oct 23', 'Oct 24', 'Oct 25', 'Oct 26'],
                 datasets: [{
-                    label: 'Revenue',
+                    label: 'الإيرادات',
                     data: [1200, 1500, 1800, 2000],
                     backgroundColor: 'rgba(54, 162, 235, 0.2)', 
                     borderColor: 'rgba(54, 162, 235, 1)',
