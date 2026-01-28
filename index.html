@@ -2,133 +2,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logistics Dashboard</title>
-    <!-- CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.0.0/dist/full.min.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script> <!-- TailwindCDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  <!-- Font Awesome -->
+    <title>Super Dashboard</title>
+
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    
+    <!-- DaisyUI -->
+    <script src="https://cdn.jsdelivr.net/npm/daisyui@3.0.0/dist/full.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.0.0/dist/full.css" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body class="bg-gray-100"> 
+<body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
 
-    <div class="flex min-h-screen">
+        <!-- Dashboard Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Sidebar -->
-        <div class="bg-white dark:bg-gray-800 w-64 px-4 py-6">
-            <h1 class="text-xl font-bold text-primary mb-4">LogiFlow</h1> 
-            <ul> 
-                <li class="mb-3">
-                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
-                        Dashboard
-                    </button>
-                </li>
-                <li class="mb-3">
-                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
-                        Clients
-                    </button>
-                </li>
-                <li>
-                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
-                        Products
-                    </button>
-                </li>
-                <li>
-                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
-                        Invoices
-                    </button>
-                </li>
-                <li>
-                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
-                        Expenses
-                    </button>
-                </li>
-                <li>
-                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
-                        Reports 
-                    </button>
-                </li>
-                <li>
-                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
-                        Settings
-                    </button>
-                </li>               
-            </ul>
-        </div>
-
-        <!-- Main Content -->
-        <div class="w-full p-6">
-            <nav class="flex justify-between items-center mb-6">
-                <!-- Left: Company Logo -->
-                <img src="#" alt="LogiFlow Logo" class="h-8">
-
-                <!-- Right: Account Dropdown & Theme Toggle -->
-                <div>
-                    <button class="text-transparent bg-tim-gold hover:bg-tim-gold/80 px-4 py-2 rounded-md">
-                        <!-- Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5v4.5M4.5 10.5v4.5" />
-                        </svg>
-                    </button> 
-                    <button class="ml-2 bg-transparent text-gray-500 hover:text-gray-700 rounded-md px-4 py-2">
-                        Theme Toggle
-                    </button>
-                </div>
-            </nav>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
-
-                <!-- Hero Card -->
-                <div class="bg-white shadow rounded-md overflow-hidden">
-                    <div class="p-6">
-                        <h2 class="text-2xl font-bold mb-2">Welcome to LogiFlow</h2>
-                        <p class="text-gray-600">Your global logistics power-up is ready!</p>
-                        <div class="flex items-center mt-4">
-                            <!-- Map Visualization (Image placeholder) -->
-                            <img src="#" alt="Global Shipment Map" class="w-full h-48">
-                        </div>
+            <div class="shadow stats bg-white p-6 rounded-md">
+                <h2 class="text-xl font-semibold">Revenue Today</h2>
+                <div class="flex items-center mt-4">
+                    <div class="w-full">
+                        <div class="text-3xl text-green-600">$1,250</div>
+                        <div class="text-sm text-gray-600">Target: $1,500</div>
                     </div>
-                </div> 
-
-                <!-- Stats Cards -->
-                <div class="bg-white shadow rounded-md overflow-hidden">
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold mb-4">Recent Activity</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-teal-100 p-4 rounded-md">
-                                <h4 class="text-xl font-bold mb-2 text-teal-700">
-                                  <span class="pr-2">🛅</span>New Clients
-                                </h4>
-                                <p><strong>345</strong> this month</p>
-                            </div> 
-                            <div class="bg-orange-100 p-4 rounded-md">
-                                <h4 class="text-xl font-bold mb-2 text-orange-700">
-                                  <span class="pr-2">🚀</span>Package Locations
-                                </h4>
-                                <p><strong>2,147,856</strong> worldwide</p>
-                            </div>
-                            <div class="bg- amber-100 p-4 rounded-md">
-                                <h4 class="text-xl font-bold mb-2 text-amber-700">
-                                  <span class="pr-2">📈</span>Estimated Deliveries
-                                </h4>
-                                <p><strong>95%</strong> on time</p>
-                            </div> 
-                        </div>
+                    <div class="ml-4">
+                        <i class="fas fa-chart-line text-2xl text-green-600"></i>
                     </div>
                 </div>
             </div>
-        </div>  
+
+            <!-- Add more Dashboard Cards here -->
+
+            <div class="shadow stats bg-white p-6 rounded-md">
+                <h2 class="text-xl font-semibold">New Sign-Ups</h2>
+                <div class="flex items-center mt-4">
+                    <div class="w-full">
+                        <div class="text-3xl text-blue-600">25</div>
+                        <div class="text-sm text-gray-600">Record: 35</div>
+                    </div>
+                    <div class="ml-4">
+                        <i class="fas fa-people-add text-2xl text-blue-600"></i>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+
+        <!-- Clients Table -->
+        <div class="shadow mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <div>
+                <h2 class="text-2xl font-semibold mb-4">Clients</h2>
+                <div class="overflow-x-auto">
+                  <table class="table w-full">
+                      <thead>
+                          <tr>
+                              <th>Name</th>
+                              <th>Email</th>
+                              <th>Plan</th>
+                              <th>Joined On</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                              <td>John Doe</td>
+                              <td>john.doe@example.com</td>
+                              <td>Basic</td>
+                              <td>2023-10-26</td>
+                          </tr>
+                          <tr>
+                              <td>Jane Smith</td>
+                              <td>jane.smith@example.com</td>
+                              <td>Pro</td>
+                              <td>2023-10-25</td>
+                          </tr>
+                          <tr>
+                              <td>Mike Johnson</td>
+                              <td>mike.johnson@example.com</td>
+                              <td>Free</td>
+                              <td>2023-10-24</td>
+                          </tr>
+                          <tr>
+                              <td>Sarah Lee</td>
+                              <td>sarah.lee@example.com</td>
+                              <td>Pro</td>
+                              <td>2023-10-23</td>
+                          </tr>
+                      </tbody>
+                  </table>
+                </div>
+            </div>
+
+            <!-- Add other sections (Products, Invoices, Expenses, Reports) here -->
+
+        </div> 
+
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    
     <script>
-        // Chart.js Initialization (Example)
-        const ctx = document.getElementById('myChart').getContext('2d');
-        const myChart = new Chart(ctx, {
-            type: 'line',
+        // Sample Chart.js code (replace with your own logic)
+        new Chart(document.getElementById('myChart'), {
+            type: 'bar',
             data: {
-                labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                labels: ['Oct 23', 'Oct 24', 'Oct 25', 'Oct 26'],
                 datasets: [{
-                    label: 'Daily Shipments',
-                    data: [12, 19, 3, 5, 2, 3, 7], // Replace with your data
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    label: 'Revenue',
+                    data: [1200, 1500, 1800, 2000],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)', 
                     borderColor: 'rgba(54, 162, 235, 1)',
                     borderWidth: 1
                 }]
@@ -141,6 +125,6 @@
                 }
             }
         });
-    </script>
+    </script> 
 </body>
 </html>
