@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class=" bg-slate-100 font-sans">
+
+<nav class="bg-white shadow-md py-3 px-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold">Dashboard</a>
+        <div class="flex items-center gap-4">
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
+                Create Product
+            </button>
+            <div class="relative">
+                <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-bold py-2 px-4 rounded ">
+                    User Profile
+                </button>    
+                </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container mx-auto py-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="bg-white rounded shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4">Products</h2>
+            <ul>
+                <li class="mb-2">
+                    <a href="#" class="text-blue-500 hover:underline">سيرة الذاتية</a> - $150
+                </li>
+            </ul>
+            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
+                Add Product
+            </button>
+        </div>
+
+        <div class="bg-white rounded shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4">Clients</h2>
+            <ul>
+                {/* Add client list here */}
+            </ul>
+        </div>
+        <div class="bg-white rounded shadow-md p-6">
+            <h2 class="text-2xl font-bold mb-4">Invoices</h2>
+            <ul>
+                {/* Add invoice list here */}
+            </ul>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
