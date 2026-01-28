@@ -1,56 +1,76 @@
-<html lang="en">
+<html lang="ar" class="h-full bg-gray-100"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.0.0/dist/full.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Add any custom TailwindCSS styles here if needed */
+    </style>
 </head>
-<body class=" bg-slate-100 font-sans">
+<body class="h-full">
 
-<nav class="bg-white shadow-md py-3 px-4">
-    <div class="container mx-auto flex justify-between items-center">
-        <a href="#" class="text-2xl font-bold">Dashboard</a>
-        <div class="flex items-center gap-4">
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ">
-                Create Product
-            </button>
-            <div class="relative">
-                <button class="bg-gray-200 hover:bg-gray-300 text-gray-800 text-sm font-bold py-2 px-4 rounded ">
-                    User Profile
-                </button>    
+    <!-- Navbar -->
+    <nav class="py-4 shadow">
+        <div class="container mx-auto flex items-center justify-between">
+            <div>
+                <!-- Logo --> 
+                <h1 class="text-2xl font-bold">Dashboard</h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <!-- User Profile Dropdown -->
+                <div class="relative">
+                    <button class="hover:bg-gray-200 px-4 py-2 rounded-full">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+                    <!-- Dropdown Menu (hidden by default) -->
+                    <ul class="absolute z-10 bg-white rounded-md shadow mt-2">
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a></li>
+                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a></li>
+                    </ul>
+                </div>  
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sidebar -->
+    <div class="container mx-auto mt-4 flex">
+        <div class="block sm:hidden border-gray-500 w-64 bg-white shadow p-4">
+            <!-- Sidebar Links (use TailwindCSS classes for styling) -->
+            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Dashboard</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Clients</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Products</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Invoices</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Expenses</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Reports</a>
+            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Settings</a>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 mx-4">
+            <!-- Hero Card -->
+            <div class="bg-white shadow rounded-lg p-6 mb-4">
+                <!-- Use a placeholder image for now -->
+                <img src="https://via.placeholder.com/300x200" alt="resume-image" class="rounded-lg shadow mb-4">
+                <h2 class="text-3xl font-bold mb-2">سيرة الذاتية</h2>
+                <p class="text-gray-600">A powerful resume builder to make you stand out.</p>
+                <button class="bg-blue-500 text-white py-2 px-4 rounded-md">Get Started</button>
+            </div>
+            <!-- Stats & Metrics -->
+            <div class="flex flex-wrap items-center justify-center gap-4">
+                <!-- Use DaisyUI Stat cards here -->
+                <div class="daisyui:rounded shadow-md"> 
+                    {/* More stats cards for clients, invoices, etc. */}
                 </div>
+            </div>
+            <!-- Recent Activity -->
+            <div class="bg-white shadow rounded-lg p-6 mb-8">
+                <!-- Recent activity timeline or a list -->
+            </div>
+            
         </div>
     </div>
-</nav>
 
-<div class="container mx-auto py-8">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div class="bg-white rounded shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-4">Products</h2>
-            <ul>
-                <li class="mb-2">
-                    <a href="#" class="text-blue-500 hover:underline">سيرة الذاتية</a> - $150
-                </li>
-            </ul>
-            <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
-                Add Product
-            </button>
-        </div>
-
-        <div class="bg-white rounded shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-4">Clients</h2>
-            <ul>
-                {/* Add client list here */}
-            </ul>
-        </div>
-        <div class="bg-white rounded shadow-md p-6">
-            <h2 class="text-2xl font-bold mb-4">Invoices</h2>
-            <ul>
-                {/* Add invoice list here */}
-            </ul>
-        </div>
-
-    </div>
-</div>
 </body>
 </html>
