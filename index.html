@@ -1,76 +1,146 @@
-<html lang="ar" class="h-full bg-gray-100"> 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logistics Dashboard</title>
+    <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.0.0/dist/full.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>Dashboard</title>
-    <style>
-        /* Add any custom TailwindCSS styles here if needed */
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- TailwindCDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">  <!-- Font Awesome -->
 </head>
-<body class="h-full">
+<body class="bg-gray-100"> 
 
-    <!-- Navbar -->
-    <nav class="py-4 shadow">
-        <div class="container mx-auto flex items-center justify-between">
-            <div>
-                <!-- Logo --> 
-                <h1 class="text-2xl font-bold">Dashboard</h1>
-            </div>
-            <div class="flex items-center gap-4">
-                <!-- User Profile Dropdown -->
-                <div class="relative">
-                    <button class="hover:bg-gray-200 px-4 py-2 rounded-full">
-                        <i class="fa-solid fa-user"></i>
+    <div class="flex min-h-screen">
+
+        <!-- Sidebar -->
+        <div class="bg-white dark:bg-gray-800 w-64 px-4 py-6">
+            <h1 class="text-xl font-bold text-primary mb-4">LogiFlow</h1> 
+            <ul> 
+                <li class="mb-3">
+                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
+                        Dashboard
                     </button>
-                    <!-- Dropdown Menu (hidden by default) -->
-                    <ul class="absolute z-10 bg-white rounded-md shadow mt-2">
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Settings</a></li>
-                        <li><a href="#" class="block px-4 py-2 hover:bg-gray-100">Logout</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-    </nav>
-
-    <!-- Sidebar -->
-    <div class="container mx-auto mt-4 flex">
-        <div class="block sm:hidden border-gray-500 w-64 bg-white shadow p-4">
-            <!-- Sidebar Links (use TailwindCSS classes for styling) -->
-            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Dashboard</a>
-            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Clients</a>
-            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Products</a>
-            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Invoices</a>
-            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Expenses</a>
-            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Reports</a>
-            <a href="#" class="block text-gray-700 hover:bg-gray-200 py-2 px-4 rounded">Settings</a>
+                </li>
+                <li class="mb-3">
+                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
+                        Clients
+                    </button>
+                </li>
+                <li>
+                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
+                        Products
+                    </button>
+                </li>
+                <li>
+                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
+                        Invoices
+                    </button>
+                </li>
+                <li>
+                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
+                        Expenses
+                    </button>
+                </li>
+                <li>
+                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
+                        Reports 
+                    </button>
+                </li>
+                <li>
+                    <button class="block w-full px-4 py-2 text-left text-gray-700 hover:bg-teal-200 rounded-md active:bg-teal-300 focus:outline-none">
+                        Settings
+                    </button>
+                </li>               
+            </ul>
         </div>
 
         <!-- Main Content -->
-        <div class="flex-1 mx-4">
-            <!-- Hero Card -->
-            <div class="bg-white shadow rounded-lg p-6 mb-4">
-                <!-- Use a placeholder image for now -->
-                <img src="https://via.placeholder.com/300x200" alt="resume-image" class="rounded-lg shadow mb-4">
-                <h2 class="text-3xl font-bold mb-2">سيرة الذاتية</h2>
-                <p class="text-gray-600">A powerful resume builder to make you stand out.</p>
-                <button class="bg-blue-500 text-white py-2 px-4 rounded-md">Get Started</button>
-            </div>
-            <!-- Stats & Metrics -->
-            <div class="flex flex-wrap items-center justify-center gap-4">
-                <!-- Use DaisyUI Stat cards here -->
-                <div class="daisyui:rounded shadow-md"> 
-                    {/* More stats cards for clients, invoices, etc. */}
+        <div class="w-full p-6">
+            <nav class="flex justify-between items-center mb-6">
+                <!-- Left: Company Logo -->
+                <img src="#" alt="LogiFlow Logo" class="h-8">
+
+                <!-- Right: Account Dropdown & Theme Toggle -->
+                <div>
+                    <button class="text-transparent bg-tim-gold hover:bg-tim-gold/80 px-4 py-2 rounded-md">
+                        <!-- Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5v4.5M4.5 10.5v4.5" />
+                        </svg>
+                    </button> 
+                    <button class="ml-2 bg-transparent text-gray-500 hover:text-gray-700 rounded-md px-4 py-2">
+                        Theme Toggle
+                    </button>
+                </div>
+            </nav>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> 
+
+                <!-- Hero Card -->
+                <div class="bg-white shadow rounded-md overflow-hidden">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold mb-2">Welcome to LogiFlow</h2>
+                        <p class="text-gray-600">Your global logistics power-up is ready!</p>
+                        <div class="flex items-center mt-4">
+                            <!-- Map Visualization (Image placeholder) -->
+                            <img src="#" alt="Global Shipment Map" class="w-full h-48">
+                        </div>
+                    </div>
+                </div> 
+
+                <!-- Stats Cards -->
+                <div class="bg-white shadow rounded-md overflow-hidden">
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-4">Recent Activity</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-teal-100 p-4 rounded-md">
+                                <h4 class="text-xl font-bold mb-2 text-teal-700">
+                                  <span class="pr-2">🛅</span>New Clients
+                                </h4>
+                                <p><strong>345</strong> this month</p>
+                            </div> 
+                            <div class="bg-orange-100 p-4 rounded-md">
+                                <h4 class="text-xl font-bold mb-2 text-orange-700">
+                                  <span class="pr-2">🚀</span>Package Locations
+                                </h4>
+                                <p><strong>2,147,856</strong> worldwide</p>
+                            </div>
+                            <div class="bg- amber-100 p-4 rounded-md">
+                                <h4 class="text-xl font-bold mb-2 text-amber-700">
+                                  <span class="pr-2">📈</span>Estimated Deliveries
+                                </h4>
+                                <p><strong>95%</strong> on time</p>
+                            </div> 
+                        </div>
+                    </div>
                 </div>
             </div>
-            <!-- Recent Activity -->
-            <div class="bg-white shadow rounded-lg p-6 mb-8">
-                <!-- Recent activity timeline or a list -->
-            </div>
-            
-        </div>
+        </div>  
     </div>
 
+    <script>
+        // Chart.js Initialization (Example)
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+                datasets: [{
+                    label: 'Daily Shipments',
+                    data: [12, 19, 3, 5, 2, 3, 7], // Replace with your data
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
