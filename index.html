@@ -1,185 +1,1 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>محفظة شخصية للمصورين</title>
-
-    <!-- Tailwind CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-    <!-- DaisyUI -->
-    <script src="https://cdn.jsdelivr.net/npm/daisyui@3.0.0/dist/full.js"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.0.0/dist/full.css" rel="stylesheet" />
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-</head>
-<body x-data="{ currentTab: 'dashboard', showModal: false }" class="bg-black">
-    <div class="container mx-auto px-4 py-8">
-
-        <!-- Dashboard Sections -->
-        <div class="tab-pane" x-show="currentTab === 'dashboard'">
-            <!-- Dashboard Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="shadow stats bg-white p-6 rounded-md">
-                    <h2 class="text-xl font-semibold">إيرادات اليوم</h2>
-                    <div class="flex items-center mt-4">
-                        <div class="w-full">
-                            <div class="text-3xl text-green-600">1250</div>
-                            <div class="text-sm text-gray-600">الهدف: 1500</div>
-                        </div>
-                        <div class="ml-4">
-                            <i class="fas fa-chart-line text-2xl text-green-600"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="shadow stats bg-white p-6 rounded-md">
-                    <h2 class="text-xl font-semibold">تسجيلات جديدة</h2>
-                    <div class="flex items-center mt-4">
-                        <div class="w-full">
-                            <div class="text-3xl text-blue-600">25</div>
-                            <div class="text-sm text-gray-600">الحدث: 35</div>
-                        </div>
-                        <div class="ml-4">
-                            <i class="fas fa-people-add text-2xl text-blue-600"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="shadow stats bg-white p-6 rounded-md">
-                    <h2 class="text-xl font-semibold">الطلبات المعلقة</h2>
-                    <div class="flex items-center mt-4">
-                        <div class="w-full">
-                            <div class="text-3xl text-red-600">12</div>
-                            <div class="text-sm text-gray-600">الحدث: 18</div>
-                        </div>
-                        <div class="ml-4">
-                            <i class="fas fa-exclamation-triangle text-2xl text-red-600"></i>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Navigation -->
-            <div class="card w-full mt-8">
-                <div class="card-body">
-                    <div class="grid grid-cols-4 gap-4">
-                        <button @click="currentTab = 'clients'" class="btn btn-primary rounded-md">عملاء</button>
-                        <button @click="currentTab = 'settings'" class="btn btn-accent rounded-md">إعدادات</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="tab-pane" x-show="currentTab === 'clients'">
-            <!-- Clients Table -->
-            <div class="shadow mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div>
-                    <h2 class="text-2xl font-semibold mb-4">عملاء</h2>
-                    <div class="overflow-x-auto">
-                      <table class="table w-full">
-                          <thead>
-                              <tr>
-                                  <th>الاسم</th>
-                                  <th>البريد الإلكتروني</th>
-                                  <th>الخطة</th>
-                                  <th>انضمام</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>أحمد محمد</td>
-                                  <td>ahmed.mohamed@example.com</td>
-                                  <td>أساسي</td>
-                                  <td>2023-10-26</td>
-                              </tr>
-                              <tr>
-                                  <td>سارة علي</td>
-                                  <td>sara.ali@example.com</td>
-                                  <td>احترافي</td>
-                                  <td>2023-10-25</td>
-                              </tr>
-                              <tr>
-                                  <td>خالد حسن</td>
-                                  <td>khaled.hassan@example.com</td>
-                                  <td>مجاني</td>
-                                  <td>2023-10-24</td>
-                              </tr>
-                              <tr>
-                                  <td>ليلى عبد الله</td>
-                                  <td>laila.abdullah@example.com</td>
-                                  <td>احترافي</td>
-                                  <td>2023-10-23</td>
-                              </tr>
-                              <tr>
-                                  <td>محمود ابراهيم</td>
-                                  <td>mahmoud.ibrahim@example.com</td>
-                                  <td>أساسي</td>
-                                  <td>2023-10-22</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                    </div>
-                </div>
-
-                <div>
-                    <h2 class="text-2xl font-semibold mb-4">المنتجات</h2>
-                    <div class="overflow-x-auto">
-                      <table class="table w-full">
-                          <thead>
-                              <tr>
-                                  <th>الاسم</th>
-                                  <th>الوصف</th>
-                                  <th>السعر</th>
-                                  <th>الكمية</th>
-                              </tr>
-                          </thead>
-                          <tbody>
-                              <tr>
-                                  <td>كاميرا احترافية</td>
-                                  <td>كاميرا ذات جودة عالية للصور الاحترافية</td>
-                                  <td>1500</td>
-                                  <td>5</td>
-                              </tr>
-                              <tr>
-                                  <td>عدسة 50 مم</td>
-                                  <td>عدسة ممتازة للتصوير</td>
-                                  <td>250</td>
-                                  <td>10</td>
-                              </tr>
-                              <tr>
-                                  <td>حقيبة كاميرا</td>
-                                  <td>حقيبة لحماية الكاميرا</td>
-                                  <td>80</td>
-                                  <td>20</td>
-                              </tr>
-                              <tr>
-                                  <td>بطاقات ذاكرة</td>
-                                  <td>بطاقات ذاكرة لتخزين الصور</td>
-                                  <td>10</td>
-                                  <td>30</td>
-                              </tr>
-                              <tr>
-                                  <td>ملحقات إضاءة</td>
-                                  <td>إضاءة احترافية لتحسين صورك</td>
-                                  <td>120</td>
-                                  <td>15</td>
-                              </tr>
-                          </tbody>
-                      </table>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="tab-pane" x-show="currentTab === 'settings'">
-            <p>صفحة الإعدادات قيد التطوير.</p>
-        </div>
-    </div>
-</body>
-</html>
+أهلاً بك! تم بناء نظام الـ HR وتفعيل التنقل السلس والوضع الليلي، يمكنك تجربته الآن 🚀
